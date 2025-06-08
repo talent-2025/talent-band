@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Talent 天能樂團</title>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        function Auth() {
+            var URL = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize?';
+            URL += 'response_type=code';
+            URL += '&client_id={請換成您的Client id}';                   //請換成您的App Client id
+            URL += '&redirect_uri=http://localhost:13555/index.html';   //請換成您的URL
+            URL += '&scope=openid https://graph.microsoft.com/user.read';  //請換成您要索取的權限
+            URL += '&response_mode=query';
+            URL += '&state=12345';
+            URL += '&nonce=678910';
+            window.location.href = URL;
+        }
+    </script>
 </head>
 <body>
-  <h1>天能樂團網站建置中</h1>
-  <p>敬請期待 🎷</p>
+    <button onclick="Auth();">點選這裡連結AAD 2.0 Login</button>
 </body>
 </html>
